@@ -8,7 +8,7 @@ var Enemy = function() {
     this.sprite = 'images/enemy-bug.png';
     // the Enemy initializes at the leftmost and can start from any row between 
     // 2 - 3 randomly    
-    this.x = getRandomInt(-10000,-100);
+    this.x = getRandomInt(-100,-1)*120;
     this.y = getRandomInt(1, 3)*83-15;
     // return this;
 };
@@ -39,7 +39,7 @@ Enemy.prototype.render = function() {
 // Place the player object in a variable called player
 var allEnemies = [];
 // Add multiple moving enemies
-for(num = 1; num <=100; num++){
+for(num = 1; num <=70; num++){
     allEnemies.push(new Enemy());    
 }
 
