@@ -9,7 +9,7 @@ var Enemy = function() {
     // the Enemy initializes at the leftmost and can start from any row between 
     // 2 - 3 randomly    
     this.x = getRandomInt(-1000,-1)*120;
-    this.y = getRandomInt(1, 3)*83-15;
+    this.y = getRandomInt(1, 3)*83-25;
     // Enemy with varies speed
     this.spd = getRandomInt(100,250)/100;
 
