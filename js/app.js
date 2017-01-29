@@ -8,8 +8,8 @@ var Enemy = function() {
     this.sprite = 'images/enemy-bug.png';
     // the Enemy initializes at the leftmost and can start from any row between 
     // 2 - 3 randomly    
-    this.x = 0;
-    this.y = getRandomInt(2, 4)*83;
+    this.x = getRandomInt(-10000,-100);
+    this.y = getRandomInt(1, 3)*83-15;
     // return this;
 };
 
@@ -19,7 +19,9 @@ Enemy.prototype.update = function(dt){
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x=this.x+dt;
+    if (this.x < 700){
+        this.x=this.x+dt*200;
+    };
 };
 
 // Draw the enemy on the screen, required method for game
@@ -36,9 +38,10 @@ Enemy.prototype.render = function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 var allEnemies = [];
-allEnemies.push(new Enemy());
-
-
+// Add multiple moving enemies
+for(num = 1; num <=100; num++){
+    allEnemies.push(new Enemy());    
+}
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
