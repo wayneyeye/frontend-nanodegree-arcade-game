@@ -96,7 +96,7 @@ var Engine = (function(global) {
             // console.log(dt);
             enemy.update(dt);
         });
-        // player.update();
+        player.update();
     }
 
     /* This function initially draws the "game level", it will then call
@@ -153,7 +153,7 @@ var Engine = (function(global) {
             enemy.render();
         });
 
-        // player.render();
+        player.render();
     }
 
     /* This function does nothing but it could have been a good place to
@@ -173,7 +173,7 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-cat-girl.png'
     ]);
     Resources.onReady(init);
 
