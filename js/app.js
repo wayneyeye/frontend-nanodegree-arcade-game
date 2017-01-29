@@ -10,6 +10,9 @@ var Enemy = function() {
     // 2 - 3 randomly    
     this.x = getRandomInt(-100,-1)*120;
     this.y = getRandomInt(1, 3)*83-15;
+    // Enemy with varies speed
+    this.spd = getRandomInt(100,150)/100;
+
     // return this;
 };
 
@@ -20,7 +23,7 @@ Enemy.prototype.update = function(dt){
     // which will ensure the game runs at the same speed for
     // all computers.
     if (this.x < 700){
-        this.x=this.x+dt*200;
+        this.x=this.x+dt*200*this.spd;
     };
 };
 
