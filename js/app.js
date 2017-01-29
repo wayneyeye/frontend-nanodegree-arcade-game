@@ -34,8 +34,9 @@ Enemy.prototype.render = function() {
 
 // Collision detection within the enemy object
 Enemy.prototype.checkCollision = function() {
-    if ((player.y-this.y)<=50&&Math.abs(player.x-this.x)<=20){
+    if (Math.abs(player.y-this.y)<=30&&Math.abs(player.x-this.x)<=40){
         // console.log('Collision!');
+        player.resFlag=true;
     };
 }
 
@@ -52,13 +53,24 @@ var Player = function() {
     // the player start from the middle bottom grid    
     this.x = 203;
     this.y = 5*83-10;
+    this.resFlag=false;
     // return this;
 };
 
 // Update the players's position, required method for game
 // handleInput()
 Player.prototype.update = function(){
-
+    if (this.resFlag){
+        this.x=203;
+        this.y=5*83-10;
+        this.resFlag=false;
+    };
+//Check if win
+    if (this.y<=20){
+        this.x=203;
+        this.y=5*83-10;
+        this.resFlag=false;
+    };
 };
 
 // Draw the player on the screen, required method for game
@@ -84,7 +96,7 @@ Player.prototype.handleInput = function(keycmd) {
     };
 
     if(keycmd == 'up'||keycmd=='down'){
-        console.log(this.y);
+        // console.log(this.y);
         this.y=this.y+cmdMap[keycmd];
         if(this.y<-80||this.y>450){
             this.y-=cmdMap[keycmd];
@@ -97,7 +109,7 @@ Player.prototype.handleInput = function(keycmd) {
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [];
 // Add multiple moving enemies
-for(num = 1; num <=900; num++){
+for(num = 1; num <=700; num++){
     allEnemies.push(new Enemy());    
 }
 // Place the player object in a variable called player

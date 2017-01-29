@@ -163,6 +163,8 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
+        player.x=203;
+        player.y=5*83-10;
     }
 
     /* Go ahead and load all of the images we know we're going to need to
