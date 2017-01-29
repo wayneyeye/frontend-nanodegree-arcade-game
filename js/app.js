@@ -69,12 +69,19 @@ Player.prototype.handleInput = function(keycmd) {
         'down': 83
     };
     if(keycmd == 'left'||keycmd=='right'){
-        console.log(this.y);
+        // console.log(this.x);
         this.x+=cmdMap[keycmd];
+        if(this.x<0||this.x>505){
+            this.x-=cmdMap[keycmd];
+        }    
     };
 
     if(keycmd == 'up'||keycmd=='down'){
+        console.log(this.y);
         this.y=this.y+cmdMap[keycmd];
+        if(this.y<-80||this.y>450){
+            this.y-=cmdMap[keycmd];
+        }    
     };
 };
 
@@ -83,7 +90,7 @@ Player.prototype.handleInput = function(keycmd) {
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [];
 // Add multiple moving enemies
-for(num = 1; num <=700; num++){
+for(num = 1; num <=900; num++){
     allEnemies.push(new Enemy());    
 }
 // Place the player object in a variable called player
