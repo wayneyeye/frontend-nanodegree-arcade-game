@@ -44,7 +44,7 @@ var Player = function() {
     this.sprite = 'images/char-cat-girl.png';
     // the player start from the middle bottom grid    
     this.x = 203;
-    this.y = 5*83-15;
+    this.y = 5*83-10;
     // return this;
 };
 
@@ -56,12 +56,26 @@ Player.prototype.update = function(){
 
 // Draw the player on the screen, required method for game
 Player.prototype.render = function() {
+    // console.log(this.x);
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 // handles the input from the keyboard
 Player.prototype.handleInput = function(keycmd) {
-    
+    var cmdMap = {
+        'left': -101,
+        'right': 101,
+        'up': -83,
+        'down': 83
+    };
+    if(keycmd == 'left'||keycmd=='right'){
+        console.log(this.y);
+        this.x+=cmdMap[keycmd];
+    };
+
+    if(keycmd == 'up'||keycmd=='down'){
+        this.y=this.y+cmdMap[keycmd];
+    };
 };
 
 
