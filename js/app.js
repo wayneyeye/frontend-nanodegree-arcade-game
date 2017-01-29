@@ -54,6 +54,8 @@ var Player = function() {
     this.x = 203;
     this.y = 5*83-10;
     this.resFlag=false;
+    this.score=0;
+    this.collision=0;
     // return this;
 };
 
@@ -64,12 +66,15 @@ Player.prototype.update = function(){
         this.x=203;
         this.y=5*83-10;
         this.resFlag=false;
+        this.collision+=1;
     };
 //Check if win
     if (this.y<=20){
         this.x=203;
         this.y=5*83-10;
         this.resFlag=false;
+        this.score+=1;
+        // console.log(score);
     };
 };
 

@@ -140,6 +140,16 @@ var Engine = (function(global) {
         }
 
         renderEntities();
+        renderScore();
+    }
+
+    //This function is called by the render to display a scoreboard
+    function renderScore(){
+        ctx.font="20px Georgia";
+        ctx.fillStyle = 'white';
+        total=player.score+player.collision;
+        // console.log(total);
+        ctx.fillText("Wins: "+player.score+"/"+total,3,100);
     }
 
     /* This function is called by the render function and is called on each game
