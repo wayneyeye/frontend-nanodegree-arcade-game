@@ -32,6 +32,13 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// Collision detection within the enemy object
+Enemy.prototype.checkCollision = function() {
+    if ((player.y-this.y)<=50&&Math.abs(player.x-this.x)<=20){
+        // console.log('Collision!');
+    };
+}
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
