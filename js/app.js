@@ -8,7 +8,7 @@ var Enemy = function() {
     this.sprite = 'images/enemy-bug.png';
     // the Enemy initializes at the leftmost and can start from any row between 
     // 2 - 3 randomly    
-    this.x = getRandomInt(-1000,-1)*120;
+    this.x = getRandomInt(-20,-1)*120;
     this.y = getRandomInt(1, 3)*83-25;
     // Enemy with varies speed
     this.spd = getRandomInt(100,250)/100;
@@ -24,7 +24,13 @@ Enemy.prototype.update = function(dt){
     // all computers.
     if (this.x < 700){
         this.x=this.x+dt*200*this.spd;
-    };
+    }
+    else {
+            this.x = getRandomInt(-20,-1)*120;
+            this.y = getRandomInt(1, 3)*83-25;
+            // Enemy with varies speed
+            this.spd = getRandomInt(100,250)/100;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -114,7 +120,7 @@ Player.prototype.handleInput = function(keycmd) {
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [];
 // Add multiple moving enemies
-for(num = 1; num <=700; num++){
+for(num = 1; num <=10; num++){
     allEnemies.push(new Enemy());    
 }
 // Place the player object in a variable called player
